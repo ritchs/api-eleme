@@ -3,12 +3,13 @@ const app = express()
 const mongoose = require('mongoose')
 // importar modelos
 const Usuario = require('./models/userModel')
+app.set('view engine', 'ejs');
 
 app.use(express.json());
 
 // rutas
 app.get('/',(req,res)=>{
-res.send('Formulario')
+res.render("index1", {titulo:"inicio EJS"})
 })
 
 app.post('/form', async(req,res)=>{
