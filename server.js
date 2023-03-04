@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 // importar modelos
 const Usuario = require('./models/userModel')
 app.set('view engine', 'ejs');
+app.set("views", __dirname + "/views");
 
 app.use(express.json());
 
