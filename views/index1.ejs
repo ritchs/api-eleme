@@ -21,16 +21,18 @@
                 <div class='mt-3 lg:mt-10 text-center lg:text-left text-white lg:text-4xl 2xl:text-5xl'>¡Registrate <strong class='text-[#F2F244]'>Gratis</strong>!</div>
                 <div class='text-left mt-5 text-white '>
                    
-                        <Form action="">
+                        <Form id='form'>
                             <label htmlFor="name" class='text-xs'>NOMBRE:</label><br />
                             <input id="name" type="text" name='name' class='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                             <label htmlFor="phone" class='text-xs'>TELÉFONO</label><br />
                             <input id="phone" type="tel" pattern="[0-9]{10}" name='phone' class='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                             <label htmlFor="email" class='text-xs'>CORREO ELECTRÓNICO</label><br />
                             <input id="email" type="email" name='email' class='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
-
-                            <button type="submit"></button>
-                            
+                            <BR>
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
+                            onclick="handleSumit()">
+                                ENVIAR
+                              </button>
                         </Form>
                    
                 </div>
@@ -43,3 +45,44 @@
     </div >
 </body>
 </html>
+<script type="text/javascript" >
+document.addEventListener("DOMContentLoaded", function(event) {
+    event.preventDefault();
+    let name;
+    let phone;
+    let email;
+    document.getElementById("name").onchange = () =>{
+        name = document.getElementById("name");
+        if(name !=''){
+            console.log("Nombre:",name.value)
+        }else{
+            alert("EL nombre no puede ser vacio")
+        }
+         
+    };
+    document.getElementById("phone").onchange = () =>{
+    phone = document.getElementById("phone");
+    if(phone==''){
+        console.log("Telefono",phone.value)
+        }else{
+            alert("EL Telefono no puede ser vacio")
+        }
+    };
+    document.getElementById("email").onchange = () =>{
+         email = document.getElementById("email");
+         if(email==''){
+            console.log("FORM",email.value)
+
+        }else{
+            alert("EL correo no puede ser vacio")
+        }
+    };
+   const handleSumit=()=>{
+    alert(JSON.stringify({
+            name :name,
+            phone:phone,
+            email:email
+    }));
+    }
+});
+    </script>

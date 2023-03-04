@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
 res.render("index1", {titulo:"inicio EJS"})
 })
 
-app.post('/form', async(req,res)=>{
+app.get('/form', async (req, res) => {
    try {
     const user = await Usuario.create(req.body);
     res.status(200).json(user);
@@ -24,12 +24,14 @@ app.post('/form', async(req,res)=>{
    }
 })
 
+//mongoose.connect ('mongodb+srv://ritchs:X3cBt78g89AAL7se@cluster0.kdolw.mongodb.net/blog?retryWrites=true&w=majority')
 mongoose.connect ('mongodb+srv://admin:admin@cluster0.9msb6zl.mongodb.net/?retryWrites=true&w=majority')
-.then(()=>{
+
+    .then(() => {
     console.log("Conectado a MONGODB")
     app.listen(3000,()=>{
         console.log("Node API corriendo en puerto 3000")
     })
-}).catch(()=>{
-    console.log(error)
+}).catch((e)=>{
+    console.log(e)
 })
