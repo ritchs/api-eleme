@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema(
     {
-        nombre: {
+        name: {
             type: String,
             required: [true, "Introduzca nombre"]
         },
@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema(
             type: String,
             required: [true, "Introduzca email"]
         },
-        telefono: {
+        phone: {
             type: Number,
             required: [true, "Introduzca telefono"]
         }
@@ -21,5 +21,5 @@ const userSchema = mongoose.Schema(
     }
 )
 
-const Usuario = mongoose.model('User', userSchema);
+const Usuario = mongoose.model('users', userSchema);
 module.exports= Usuario;

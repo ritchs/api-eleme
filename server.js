@@ -14,8 +14,10 @@ res.render("index1", {titulo:"inicio EJS"})
 })
 
 app.get('/form', async (req, res) => {
+    console.log("res", req.query)
+    
    try {
-    const user = await Usuario.create(req.body);
+    const user = await Usuario.create(req.query);
     res.status(200).json(user);
    } catch (error) {
     console.log(error.message)
@@ -24,8 +26,8 @@ app.get('/form', async (req, res) => {
    }
 })
 
-//mongoose.connect ('mongodb+srv://ritchs:X3cBt78g89AAL7se@cluster0.kdolw.mongodb.net/blog?retryWrites=true&w=majority')
-mongoose.connect ('mongodb+srv://admin:admin@cluster0.9msb6zl.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect ('mongodb+srv://ritchs:X3cBt78g89AAL7se@cluster0.kdolw.mongodb.net/blog?retryWrites=true&w=majority')
+//mongoose.connect ('mongodb+srv://admin:admin@cluster0.9msb6zl.mongodb.net/?retryWrites=true&w=majority')
 
     .then(() => {
     console.log("Conectado a MONGODB")
