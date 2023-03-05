@@ -5,13 +5,17 @@ const mongoose = require('mongoose')
 const Usuario = require('./models/userModel')
 app.set('view engine', 'ejs');
 app.set("views", __dirname + "/views");
-
+app.use( express.static( "public" ) );
 app.use(express.json());
 
 // rutas
 app.get('/',(req,res)=>{
 res.render("index1", {titulo:"inicio EJS"})
 })
+
+app.get('/grupo',(req,res)=>{
+    res.render("grupo", {titulo:"inicio EJS"})
+    })
 
 app.get('/form', async (req, res) => {
     console.log("res", req.query)
