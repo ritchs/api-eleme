@@ -11,10 +11,13 @@ app.use(express.json());
 // rutas
 app.get('/', (req, res) => {
     res.render("index1", { titulo: "inicio EJS" })
+    req.render("index1", { titulo: "inicio EJS" })
+
 })
 
 app.get('/grupo', (req, res) => {
     res.render("grupo", { titulo: "inicio EJS" })
+    req.render("grupo", { titulo: "inicio EJS" })
 })
 
 app.get('/form', async (req, res) => {
